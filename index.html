@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angga Dwi Wahyudi - System Analyst & IT Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#020617',
+                            card: '#0f172a',
+                            border: '#1e293b',
+                            primary: '#3b82f6',
+                            accent: '#60a5fa',
+                            text: '#94a3b8',
+                            light: '#f8fafc'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'gradient-x': 'gradient-x 3s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #020617; }
+        .glass-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .reveal-delay-1 { transition-delay: 100ms; }
+        .reveal-delay-2 { transition-delay: 200ms; }
+        .reveal-delay-3 { transition-delay: 300ms; }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text font-sans antialiased selection:bg-brand-primary selection:text-white overflow-x-hidden">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/0 backdrop-blur-none border-b border-transparent transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight text-brand-light flex items-center gap-3 group">
+                <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-primary to-purple-600 text-white flex items-center justify-center text-sm font-mono shadow-[0_0_15px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] group-hover:rotate-12 transition-all duration-300">AD</span>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-brand-light to-brand-text group-hover:text-white transition-all duration-300">ANGGA D.W.</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="relative overflow-hidden group py-1">
+                    <span class="group-hover:text-white transition-colors duration-300">Tentang</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#experience" class="relative overflow-hidden group py-1">
+                    <span class="group-hover:text-white transition-colors duration-300">Pengalaman</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#projects" class="relative overflow-hidden group py-1">
+                    <span class="group-hover:text-white transition-colors duration-300">Proyek</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#skills" class="relative overflow-hidden group py-1">
+                    <span class="group-hover:text-white transition-colors duration-300">Keahlian</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#contact" class="px-5 py-2.5 bg-brand-light/10 border border-brand-border text-white font-medium rounded-xl hover:bg-brand-primary hover:border-brand-primary hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">Hubungi Saya</a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none text-2xl p-2 hover:text-brand-primary transition-colors duration-300">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-xl border-b border-brand-border px-6 pt-4 pb-6 space-y-3 shadow-2xl absolute w-full top-20 left-0 origin-top animate-[fadeIn_0.2s_ease-out]">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-white hover:pl-2 font-medium transition-all duration-300">Tentang Saya</a>
+            <a href="#experience" class="block py-2 text-slate-300 hover:text-white hover:pl-2 font-medium transition-all duration-300">Pengalaman</a>
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-white hover:pl-2 font-medium transition-all duration-300">Proyek</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-white hover:pl-2 font-medium transition-all duration-300">Keahlian</a>
+            <a href="#contact" class="block text-center mt-3 py-3 bg-brand-primary hover:bg-blue-600 text-white font-medium rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 overflow-hidden">
+        <div class="absolute top-20 left-10 w-96 h-96 bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
+        <div class="absolute top-40 right-10 w-96 h-96 bg-purple-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-40 w-96 h-96 bg-indigo-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [background-size:24px_24px] opacity-50"></div>
+        
+        <div class="max-w-6xl mx-auto relative z-10 w-full">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 lg:gap-20">
+                <div class="flex-1 text-center md:text-left space-y-8 reveal opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+                    <div class="inline-flex items-center gap-2 py-2 px-5 rounded-full bg-brand-card/80 border border-brand-border hover:border-brand-primary/50 text-brand-accent text-xs font-semibold tracking-wider backdrop-blur-md transition-all duration-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] cursor-default">
+                        <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+                        IT Business System Analyst & Web Development
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <h2 class="text-xl md:text-2xl text-slate-400 font-medium tracking-wide">Halo, saya</h2>
+                        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 animate-gradient-x animate-float">
+                            ANGGA DWI WAHYUDI
+                        </h1>
+                    </div>
+
+                    <p class="text-slate-400 max-w-xl mx-auto md:mx-0 text-base sm:text-lg leading-relaxed font-normal hover:text-slate-300 transition-colors duration-300">
+                        Menghubungkan kebutuhan bisnis dengan solusi teknologi yang terstruktur, fungsional, dan berorientasi pada pengguna melalui pendekatan analitis dan pengembangan modern.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-2">
+                        <a href="#projects" class="group w-full sm:w-auto px-8 py-3.5 bg-brand-light/10 text-white border border-brand-border font-medium rounded-xl hover:bg-brand-primary hover:border-brand-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] hover:-translate-y-1 flex items-center justify-center gap-3 backdrop-blur-sm">
+                            <i class="fa-solid fa-laptop-code group-hover:rotate-12 transition-transform duration-300"></i> Eksplorasi Proyek
+                        </a>
+                        <a href="#contact" class="group w-full sm:w-auto px-8 py-3.5 bg-transparent border border-slate-700 text-slate-300 font-medium rounded-xl hover:border-white hover:text-white transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-arrow-right group-hover:-rotate-45 transition-transform duration-300"></i> Hubungi Saya
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-64 h-64 sm:w-72 sm:h-72 lg:w-[400px] lg:h-[400px] relative reveal opacity-0 scale-90 transition-all duration-1000 ease-out delay-200">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-[2rem] rotate-6 opacity-20 blur-2xl animate-pulse"></div>
+                    <div class="absolute inset-0 border-2 border-brand-primary/30 rounded-[2rem] -rotate-3 transition-transform duration-500 hover:rotate-0 animate-float-delayed"></div>
+                    <div class="relative w-full h-full rounded-[2rem] overflow-hidden border border-brand-border glass-card shadow-2xl group animate-float">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent z-10"></div>
+                        <img src="angga.png" alt="Angga Dwi Wahyudi" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://ui-avatars.com/api/?name=Angga+Dwi&size=512&background=0f172a&color=60a5fa&bold=true'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+        <div class="mb-16 reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+            <div class="flex items-center gap-4 mb-2">
+                <span class="w-12 h-px bg-brand-primary/50"></span>
+                <span class="text-brand-accent text-sm font-semibold tracking-widest uppercase">PROFILE</span>
+            </div>
+            <h2 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Tentang Saya</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 glass-card p-8 sm:p-10 rounded-3xl border border-brand-border hover:border-brand-primary/30 transition-all duration-500 group reveal opacity-0 translate-x-[-30px]">
+                <p class="text-base sm:text-lg leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
+                    Lulusan Program Studi Sistem Informasi Universitas Alma Ata dengan pengalaman dalam mengidentifikasi dan menganalisis kebutuhan pengguna, memodelkan proses bisnis, serta menyusun dokumentasi sistem menggunakan Flowchart, UML, dan ERD secara terstruktur. Memahami proses pengembangan dan pengujian sistem, serta mampu menerjemahkan kebutuhan bisnis dan pengguna menjadi dokumentasi teknis yang jelas bagi tim pengembang. Memiliki latar belakang teknis dalam pengembangan sistem dan integrasi API yang mendukung kolaborasi dengan stakeholder dan tim pengembang dalam proses SDLC untuk menghasilkan solusi yang sesuai dengan kebutuhan pengguna.
+                </p>
+                
+                <div class="pt-2">
+                    <a href="https://www.linkedin.com/in/anggawhy/" target="_blank" class="flex items-center justify-between p-4 bg-brand-dark/50 hover:bg-brand-primary/10 rounded-2xl border border-brand-border hover:border-brand-primary transition-all duration-300 group/link">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-xl group-hover/link:bg-blue-600 group-hover/link:text-white group-hover/link:scale-110 transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-500 font-medium">Connect with me on</span>
+                                <span class="font-bold text-white text-sm sm:text-base group-hover/link:text-brand-accent transition-colors duration-300">LinkedIn Profile</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-slate-600 group-hover/link:text-white group-hover/link:translate-x-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 pt-4">
+                    <div class="p-5 bg-brand-dark/50 rounded-2xl border border-brand-border hover:border-brand-primary/50 transition-all duration-300 group/stat relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover/stat:opacity-100 transition-opacity duration-300"></div>
+                        <span class="block text-3xl font-bold text-white group-hover/stat:text-brand-primary transition-colors duration-300 relative z-10">3.87 <span class="text-lg text-slate-500">/ 4.0</span></span>
+                        <span class="text-xs text-slate-400 font-medium mt-1 block relative z-10">IPK S1 Sistem Informasi</span>
+                    </div>
+                    <div class="p-5 bg-brand-dark/50 rounded-2xl border border-brand-border hover:border-purple-500/50 transition-all duration-300 group/stat relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover/stat:opacity-100 transition-opacity duration-300"></div>
+                        <span class="block text-xl font-bold text-white group-hover/stat:text-purple-400 transition-colors duration-300 relative z-10 mt-1">Best Team</span>
+                        <span class="text-xs text-slate-400 font-medium mt-2 block relative z-10">Hackathon Maxy Academy</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8 sm:p-10 rounded-3xl border border-brand-border hover:border-brand-primary/30 transition-all duration-500 space-y-8 group reveal opacity-0 translate-x-[30px]">
+                <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-accent group-hover:scale-110 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    Pendidikan & Sertifikasi
+                </h3>
+                <div class="space-y-8 border-l-2 border-brand-border group-hover:border-brand-primary/30 transition-colors duration-500 pl-6 text-sm relative ml-5">
+                    <div class="relative group/edu">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brand-dark border-2 border-brand-primary group-hover/edu:bg-brand-primary group-hover/edu:scale-125 transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                        <h4 class="font-bold text-white text-lg group-hover/edu:text-brand-accent transition-colors duration-300">Universitas Alma Ata</h4>
+                        <p class="text-slate-400 font-medium text-sm mt-1">S1 Sistem Informasi <span class="text-slate-500">(Sept 2022 - Ags 2026)</span></p>
+                    </div>
+                    <div class="relative group/edu">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brand-dark border-2 border-purple-500 group-hover/edu:bg-purple-500 group-hover/edu:scale-125 transition-all duration-300 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+                        <h4 class="font-bold text-white text-lg group-hover/edu:text-purple-400 transition-colors duration-300">Maxy Academy</h4>
+                        <p class="text-slate-400 font-medium text-sm mt-1">Frontend Development <span class="text-slate-500">(Sept - Des 2024)</span></p>
+                        <p class="text-sm text-slate-500 mt-2 bg-brand-dark/50 p-3 rounded-lg border border-brand-border">Studi Independen Bersertifikat Batch 7.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 relative border-y border-brand-border/50">
+        <div class="absolute inset-0 bg-brand-dark"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMikiLz48L3N2Zz4=')] [background-size:24px_24px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="mb-16 reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+                <div class="flex items-center gap-4 mb-2">
+                    <span class="w-12 h-px bg-brand-primary/50"></span>
+                    <span class="text-brand-accent text-sm font-semibold tracking-widest uppercase">EXPERIENCE & PROJECTS</span>
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Pengalaman & Proyek</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
+                <!-- KOLOM PENGALAMAN -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-slate-300 flex items-center gap-3 mb-6 reveal opacity-0 translate-x-[-20px] transition-all duration-500 ease-out">
+                        <span class="w-8 h-8 rounded-lg bg-brand-primary/20 text-brand-accent flex items-center justify-center"><i class="fa-solid fa-briefcase"></i></span>
+                        PENGALAMAN KERJA
+                    </h3>
+
+                    <!-- Experience 1 -->
+                    <div class="group glass-card p-6 sm:p-8 rounded-3xl border border-brand-border hover:border-brand-primary/50 transition-all duration-300 reveal opacity-0 translate-y-10 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] hover:-translate-y-1 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-brand-primary transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
+                            <div>
+                                <h4 class="font-bold text-white text-lg group-hover:text-brand-accent transition-colors duration-300">Web Developer Intern</h4>
+                                <p class="text-sm text-slate-400 mt-1">PT Treeta Amanah Mandiri Group</p>
+                            </div>
+                            <span class="text-xs px-3 py-1.5 bg-brand-primary/10 text-brand-accent font-medium rounded-full border border-brand-primary/20 whitespace-nowrap">Sept - Nov 2025</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 leading-relaxed list-disc list-outside ml-4 group-hover:text-slate-300 transition-colors duration-300">
+                            <li>Menganalisis kebutuhan pengguna dan sistem serta memodelkan alur proses bisnis untuk menentukan kebutuhan fungsional sistem.</li>
+                            <li>Merancang struktur database menggunakan ERD berdasarkan kebutuhan pengguna yang telah diidentifikasi.</li>
+                            <li>Menerjemahkan desain UI E-Commerce KTJ Collection menjadi fitur web yang fungsional.</li>
+                            <li>Melakukan pengujian sistem untuk memvalidasi kesesuaian fungsi fitur dengan proses bisnis dan kebutuhan pengguna.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience 2 -->
+                    <div class="group glass-card p-6 sm:p-8 rounded-3xl border border-brand-border hover:border-purple-500/50 transition-all duration-300 reveal opacity-0 translate-y-10 reveal-delay-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] hover:-translate-y-1 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-purple-500 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
+                            <div>
+                                <h4 class="font-bold text-white text-lg group-hover:text-purple-400 transition-colors duration-300">Asisten Peneliti</h4>
+                                <p class="text-sm text-slate-400 mt-1">MBKM Universitas Alma Ata</p>
+                            </div>
+                            <span class="text-xs px-3 py-1.5 bg-purple-500/10 text-purple-400 font-medium rounded-full border border-purple-500/20 whitespace-nowrap">Juni - Des 2025</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 leading-relaxed list-disc list-outside ml-4 group-hover:text-slate-300 transition-colors duration-300">
+                            <li>Mengembangkan solusi digital UMKM berbasis WordPress yang terintegrasi dengan sistem ERP untuk mendukung otomatisasi proses pencatatan bisnis.</li>
+                            <li>Memberikan pelatihan teknis dan memastikan pengguna memahami alur penggunaan sistem secara efektif.</li>
+                            <li>Menyusun dan mengembangkan materi penulisan ilmiah berupa jurnal dan buku berdasarkan hasil kegiatan penelitian.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience 3 -->
+                    <div class="group glass-card p-6 sm:p-8 rounded-3xl border border-brand-border hover:border-brand-primary/50 transition-all duration-300 reveal opacity-0 translate-y-10 reveal-delay-2 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] hover:-translate-y-1 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-brand-primary transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
+                            <div>
+                                <h4 class="font-bold text-white text-lg group-hover:text-brand-accent transition-colors duration-300">Frontend Developer Intern</h4>
+                                <p class="text-sm text-slate-400 mt-1">Maxy Academy</p>
+                            </div>
+                            <span class="text-xs px-3 py-1.5 bg-brand-primary/10 text-brand-accent font-medium rounded-full border border-brand-primary/20 whitespace-nowrap">Nov - Des 2024</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 leading-relaxed list-disc list-outside ml-4 group-hover:text-slate-300 transition-colors duration-300">
+                            <li>Mengembangkan antarmuka (UI) yang responsif menggunakan Laravel dan Tailwind CSS berdasarkan brief kebutuhan mitra industri.</li>
+                            <li>Berkolaborasi dalam tim menggunakan metodologi Agile untuk menyelesaikan dan menguji fitur aplikasi secara end-to-end.</li>
+                            <li>Melakukan integrasi API untuk memastikan kelancaran pertukaran data pada sistem.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- KOLOM PROYEK -->
+                <div id="projects" class="space-y-6 lg:mt-0 mt-8">
+                    <h3 class="text-xl font-bold text-slate-300 flex items-center gap-3 mb-6 reveal opacity-0 translate-x-[20px] transition-all duration-500 ease-out">
+                        <span class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center"><i class="fa-solid fa-laptop-code"></i></span>
+                        PORTOFOLIO PROYEK
+                    </h3>
+
+                    <!-- Project 1 -->
+                    <div class="group glass-card p-6 sm:p-8 rounded-3xl border border-brand-border hover:border-indigo-500/50 transition-all duration-300 reveal opacity-0 translate-y-10 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
+                            <h4 class="font-bold text-white text-lg group-hover:text-indigo-400 transition-colors duration-300">Sistem Informasi Penerimaan Santri</h4>
+                            <span class="text-xs px-2.5 py-1 bg-brand-dark border border-slate-700 text-slate-300 font-semibold rounded-lg whitespace-nowrap">Ponpes Banyu Agung</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 leading-relaxed list-disc list-outside ml-4 mb-5 group-hover:text-slate-300 transition-colors duration-300">
+                            <li>Menganalisis proses pendaftaran santri secara manual, mengidentifikasi hambatan operasional, serta menerjemahkan kebutuhan pengguna menjadi spesifikasi sistem menggunakan UML dan Flowchart dengan metode Waterfall.</li>
+                            <li>Merancang wireframe antarmuka sistem menggunakan Figma berdasarkan kebutuhan dan alur pengguna.</li>
+                            <li>Menyusun skenario Black Box Testing dan UAT untuk memvalidasi fungsionalitas sistem berdasarkan kebutuhan pengguna.</li>
+                        </ul>
+                        <div class="pt-4 border-t border-brand-border/50 flex flex-wrap items-center gap-3">
+                            <a href="https://anggawhy.notion.site/Portofolio-System-Analyst-Angga-Dwi-Wahyudi-ppbanyuagung-com-363e7d5a0bb98002a6c4d06db63bd478" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-dark/50 hover:bg-white hover:text-brand-dark text-slate-300 text-xs font-semibold rounded-xl transition-all duration-300 border border-brand-border">
+                                <i class="fa-solid fa-file-lines"></i> Notion Study
+                            </a>
+                            <a href="https://ppbanyuagung.com" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500/10 hover:bg-indigo-500 hover:text-white text-indigo-400 text-xs font-semibold rounded-xl transition-all duration-300 border border-indigo-500/30">
+                                Kunjungi <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="group glass-card p-6 sm:p-8 rounded-3xl border border-brand-border hover:border-indigo-500/50 transition-all duration-300 reveal opacity-0 translate-y-10 reveal-delay-1 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
+                            <h4 class="font-bold text-white text-lg group-hover:text-indigo-400 transition-colors duration-300">Website Sengkala Graduation</h4>
+                            <span class="text-xs px-2.5 py-1 bg-brand-dark border border-slate-700 text-slate-300 font-semibold rounded-lg whitespace-nowrap">Fotografi</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 leading-relaxed list-disc list-outside ml-4 mb-5 group-hover:text-slate-300 transition-colors duration-300">
+                            <li>Melakukan requirement gathering dan merancang sistem informasi manajemen layanan fotografi kelulusan berbasis Waterfall, serta mengembangkan antarmuka web yang responsif sesuai alur proses pengguna.</li>
+                        </ul>
+                        <div class="pt-4 border-t border-brand-border/50 flex items-center">
+                            <a href="https://manajemen-fotografi.prototype.co.id" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-dark/50 hover:bg-white hover:text-brand-dark text-slate-300 text-xs font-semibold rounded-xl transition-all duration-300 border border-brand-border">
+                                Kunjungi Proyek <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="group glass-card p-6 sm:p-8 rounded-3xl border border-brand-border hover:border-indigo-500/50 transition-all duration-300 reveal opacity-0 translate-y-10 reveal-delay-2 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
+                            <h4 class="font-bold text-white text-lg group-hover:text-indigo-400 transition-colors duration-300">Website Posyandu Surobayan</h4>
+                            <span class="text-xs px-2.5 py-1 bg-brand-dark border border-slate-700 text-slate-300 font-semibold rounded-lg whitespace-nowrap">Sistem Informasi</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 leading-relaxed list-disc list-outside ml-4 mb-5 group-hover:text-slate-300 transition-colors duration-300">
+                            <li>Mengembangkan sistem informasi Posyandu secara end-to-end, dimulai dari perancangan alur sistem, pengembangan antarmuka (UI), hingga tahap pengujian dan deployment ke hosting.</li>
+                        </ul>
+                        <div class="pt-4 border-t border-brand-border/50 flex items-center">
+                            <a href="https://posyandusurobayan.com" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-dark/50 hover:bg-white hover:text-brand-dark text-slate-300 text-xs font-semibold rounded-xl transition-all duration-300 border border-brand-border">
+                                Kunjungi Proyek <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="mb-16 text-center reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+            <span class="text-brand-accent text-sm font-semibold tracking-widest uppercase mb-2 block">EXPERTISE</span>
+            <h2 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Keahlian & Kompetensi</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="group glass-card p-6 rounded-3xl border border-brand-border hover:border-brand-primary/50 transition-all duration-500 space-y-6 reveal opacity-0 translate-y-10 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)]">
+                <div class="w-14 h-14 bg-brand-dark border border-brand-border text-brand-primary rounded-2xl flex items-center justify-center font-bold text-2xl group-hover:bg-brand-primary group-hover:text-white group-hover:border-brand-primary group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-inner">
+                    <i class="fa-solid fa-sitemap"></i>
+                </div>
+                <h3 class="font-bold text-white text-lg">System Analysis</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-brand-primary/30 transition-colors">Requirement Analysis</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-brand-primary/30 transition-colors">User Story</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-brand-primary/30 transition-colors">Flowchart</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-[11px] font-medium rounded-lg border border-brand-border group-hover:border-brand-primary/30 transition-colors leading-relaxed">UML (Use Case, Activity, Sequence, Class)</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-brand-primary/30 transition-colors">ERD</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-brand-primary/30 transition-colors">SDLC (Waterfall, Agile/Scrum)</span>
+                </div>
+            </div>
+
+            <div class="group glass-card p-6 rounded-3xl border border-brand-border hover:border-purple-500/50 transition-all duration-500 space-y-6 reveal opacity-0 translate-y-10 reveal-delay-1 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(168,85,247,0.1)]">
+                <div class="w-14 h-14 bg-brand-dark border border-brand-border text-purple-400 rounded-2xl flex items-center justify-center font-bold text-2xl group-hover:bg-purple-500 group-hover:text-white group-hover:border-purple-500 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300 shadow-inner">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h3 class="font-bold text-white text-lg">Technical Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-purple-500/30 transition-colors">CodeIgniter</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-purple-500/30 transition-colors">Laravel</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-purple-500/30 transition-colors">HTML</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-purple-500/30 transition-colors">CSS (Tailwind)</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-purple-500/30 transition-colors">JavaScript</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-purple-500/30 transition-colors">MySQL</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-purple-500/30 transition-colors">API Integration</span>
+                </div>
+            </div>
+
+            <div class="group glass-card p-6 rounded-3xl border border-brand-border hover:border-green-500/50 transition-all duration-500 space-y-6 reveal opacity-0 translate-y-10 reveal-delay-2 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(34,197,94,0.1)]">
+                <div class="w-14 h-14 bg-brand-dark border border-brand-border text-green-400 rounded-2xl flex items-center justify-center font-bold text-2xl group-hover:bg-green-500 group-hover:text-white group-hover:border-green-500 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-inner">
+                    <i class="fa-solid fa-vial-circle-check"></i>
+                </div>
+                <h3 class="font-bold text-white text-lg">Testing & Tools</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">Test Case</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">Black Box Testing</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">UAT</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">Draw.io</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">Postman</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">Trello</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">Figma</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">Notion</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">Google Workspace</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">Git</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-green-500/30 transition-colors">GitHub</span>
+                </div>
+            </div>
+
+            <div class="group glass-card p-6 rounded-3xl border border-brand-border hover:border-pink-500/50 transition-all duration-500 space-y-6 reveal opacity-0 translate-y-10 reveal-delay-3 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(236,72,153,0.1)]">
+                <div class="w-14 h-14 bg-brand-dark border border-brand-border text-pink-400 rounded-2xl flex items-center justify-center font-bold text-2xl group-hover:bg-pink-500 group-hover:text-white group-hover:border-pink-500 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300 shadow-inner">
+                    <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <h3 class="font-bold text-white text-lg">Soft Skills</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-pink-500/30 transition-colors">Analytical Thinking</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-pink-500/30 transition-colors">Problem Solving</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-pink-500/30 transition-colors">Stakeholder Management</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-pink-500/30 transition-colors">Teamwork</span>
+                    <span class="px-3 py-1.5 bg-brand-dark/50 text-slate-300 text-xs font-medium rounded-lg border border-brand-border group-hover:border-pink-500/30 transition-colors">Time Management</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 relative overflow-hidden border-t border-brand-border/50">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark to-[#050b14]"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-brand-primary to-transparent opacity-50"></div>
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center space-y-8 relative z-10 px-4 sm:px-6">
+            <div class="reveal opacity-0 translate-y-10 transition-all duration-700 ease-out">
+                <span class="text-brand-accent text-sm font-semibold tracking-widest uppercase mb-4 block">CONTACT</span>
+                <h2 class="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-6">Mari Berkolaborasi</h2>
+                <p class="text-slate-400 max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
+                    Tertarik untuk bekerja sama atau membutuhkan tenaga analis sistem dan frontend developer? Hubungi saya sekarang.
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6 pt-6 reveal opacity-0 translate-y-10 transition-all duration-700 delay-200 ease-out">
+                <a href="mailto:anggadwiwhy67@gmail.com" class="group flex items-center justify-center gap-3 px-8 py-4 glass-card border border-brand-border hover:border-brand-primary rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] hover:bg-brand-primary/10">
+                    <div class="w-10 h-10 rounded-full bg-brand-dark flex items-center justify-center group-hover:bg-brand-primary transition-colors duration-300">
+                        <i class="fa-solid fa-envelope text-brand-accent group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="text-slate-300 group-hover:text-white font-medium transition-colors">Kirim Email</span>
+                </a>
+                <a href="https://wa.me/6285806042201" target="_blank" class="group flex items-center justify-center gap-3 px-8 py-4 glass-card border border-brand-border hover:border-green-500 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] hover:bg-green-500/10">
+                    <div class="w-10 h-10 rounded-full bg-brand-dark flex items-center justify-center group-hover:bg-green-500 transition-colors duration-300">
+                        <i class="fa-brands fa-whatsapp text-green-500 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="text-slate-300 group-hover:text-white font-medium transition-colors">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#050b14] text-slate-500 py-8 text-center text-sm border-t border-brand-border/30">
+        <p>&copy; 2026 Angga Dwi Wahyudi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.getElementById('header');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-brand-dark/80', 'backdrop-blur-xl', 'border-brand-border', 'shadow-lg');
+                header.classList.remove('bg-brand-dark/0', 'border-transparent');
+            } else {
+                header.classList.remove('bg-brand-dark/80', 'backdrop-blur-xl', 'border-brand-border', 'shadow-lg');
+                header.classList.add('bg-brand-dark/0', 'border-transparent');
+            }
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-10', 'translate-x-[-30px]', 'translate-x-[30px]', 'translate-x-[-20px]', 'translate-x-[20px]', 'scale-90');
+                    entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0', 'scale-100');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
